@@ -2,721 +2,619 @@
 <html lang="en">
 
 <head>
-  <meta name="google-site-verification" content="ftFOlJETX-2KNjaPh8W6s8lhigItRuu9fOmjHZZ0nY0" />
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="google-site-verification" content="ftFOlJETX-2KNjaPh8W6s8lhigItRuu9fOmjHZZ0nY0" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+      shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-  <title>Seen and unseen emotional style transfer for voice conversion with a new emotional speech dataset</title>
+    <title>Nonparallel Emotional Voice Conversion for unseen speaker-emotion combination using dual domain classifiers
+        and virtual domain mixing training
+    </title>
 </head>
 <style type="text/css">
-  table {
-    width: 100%;
-    table-layout: fixed;
-  }
-
-  audio {
-    width: 100%;
-  }
-
-  thead>tr>th:first-child {
-    width: 96px;
-  }
-
-  @media (max-width: 767px) {
-    .big-screen {
-      display: none;
+    table {
+        width: 100%;
+        table-layout: fixed;
     }
-  }
 
-  @media (min-width: 767px) {
-    .small-screen {
-      display: none;
+    audio {
+        width: 100%;
     }
-  }
+
+    thead>tr>th:first-child {
+        width: 96px;
+    }
+
+    @media (max-width: 767px) {
+        .big-screen {
+            display: none;
+        }
+    }
+
+    @media (min-width: 767px) {
+        .small-screen {
+            display: none;
+        }
+    }
 </style>
 
 <body>
-  <header class="header">
-    <div class="jumbotron bg-secondary text-center">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-12">
-            <h1><a class="text-light">Seen and unseen emotional style transfer for voice conversion with a new emotional speech dataset</h1><br>
-             <font size=5><span style="color:#FFFFFF"> Kun Zhou<sup>1</sup>, Berrak Sisman<sup>2</sup>, Rui Liu<sup>1</sup>, Haizhou Li<sup>1</sup> </br>
-             <font size=3><span style="color:#000000"> zhoukun@u.nus.edu &nbsp berrak_sisman@sutd.edu.sg &nbsp r.liu@u.nus.edu &nbsp haizhou.li@nus.edu.sg
-             </font><font size=4> <br> <br> <sup>1</sup>  Dept. of Electrical and Computer Engineering, National University of Singapore  <br> <sup>2</sup>  Information Systems Technology and Design, Singapore University of Technology and Design  <br></font>  </a>  
-            <p>
-              <div class="row">
-              </div>
-            </p>
-            
-          </div>
+    <header class="header">
+        <div class="jumbotron bg-secondary text-center">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <h1><a class="text-light">Nonparallel Emotional Voice Conversion
+                                for unseen speaker-emotion combination using dual domain
+                                classifiers and virtual domain mixing training</h1><br>
+                        <font size=5><span style="color:#FFFFFF"> Nirmesh J. Shah$<sup>1*</sup>,
+                                Mayank K. Singh<sup>2*</sup>, Naoya Takahashi<sup>2</sup>,
+                                Naoyuki Onoe$<sup>1</sup> </br>
+                                <font size=3><span style="color:#000000"> {Nirmesh.Shah,
+                                        Mayank.A.Singh, Naoya.Takahashi, Noayuki.Onoe}@sony.com
+                                </font>
+                                <font size=4> <br> <br>
+                                    <sup>1</sup> Sony Research India <br>
+                                    <sup>2</sup> Sony Group Corporation, Japan <br>
+                                    <sup>*</sup> Both authors have equal contributions<br>
+                                </font> </a>
+
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </header>
-  <main>
-    <div class="container">
-      <div class="row" id="result">
-        <div class="col-md-12">
-          <h2>---------------------------->   Model Architecture   <-----------------------</h2>
-          <br />
-                    <img src="./Figure2.pdf"  width="1050" height="350" / > <p>
-                      <figcaption style="terx-align:center;"></font><font size=3> 
-                       Figure 1. The training phase of the proposed DeepEST framework. Blue boxes represent the networks that involved in the training and red boxes represent the networks that are already trained.</font>
-                      </figcaption><br>
-                    The codes of this paper are available <a href="https://github.com/KunZhou9646/controllable_evc_code">here</a>.<br><p>
-                   <h2>------------------------>   Emotional Speech Corpus   <-----------------------</h2>
-                   We introduce a new Mandarin-English emotional speech corpus which consists of 350 parallel utterances with the average duration of 2.5 seconds spoken by 10 native speakers (5 male and 5 female) in five emotions (neutral, sad, happy, angry and surprise) for each language (Mandarin and English). All the speech data are samples at 16 kHz and saved in 16 bits. The transcripts are provided in both Chinese and English. <br></br>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row" id="result">
+                <div class="col-md-12 text-center">
+                    <h2>Model Architecture</h2>
+                    <br />
+                    <img src="figure.png" style="width:100%" />
+                    <p>
+                    <figcaption style="text-align:center;">
+                        </font>
+                        <font size=3>
+                            Figure 1. Block diagram of the proposed StarGANv2-EVCUP architecture
+                        </font>
+                    </figcaption><br>
+                    <p>
+                    <div class="big-screen">
+                        <h2 style="text-decoration: underline;">Speech Samples</h2>
+                        <br /><br />
+                        <!--  Speech Quality Evaluation -->
+                        <table class="table">
+                            <thead>
 
-                   This emotional speech corpuse is developed for emotional voice conversion (EVC) and also suitable for voice conversion (VC) and text-to-speech (TTS). The whole speech corpus are publicly avaliable only for research purpose. Please feel free to use this dataset to help with your own research. <br></br>
-
-                   The whole emotional speech corpus can be accessed <a href="https://github.com/HLTSingapore/Emotional-Speech-Data">here</a>. Please cite this paper if you are using this dataset.
-
-
-
-
-
-
-
-                  <div class="big-screen">
-                    <br /><br />
-                     <h2>----------------------------->   Speech Samples  <---------------------------</h2>
-
-
-
-
-
-                     <br /><br />
-                    <!--  Speech Quality Evaluation -->
-                    <table class="table">
-                      <thead>
-       
-                        <tr>
-                             <th colspan=5><h4>Neutral-to-Happy</h4></th>
-                        </tr>
-                      </thead>
-                    <h6> <b>VAW-GAN-EVC [1]</b>: A state-of-the-art VAW-GAN-based EVC framework. The decoder is conditioned with F0 and one-hot emotion ID. </h6>
-                    <h6><b>DeepEST (proposed) </b>: The proposed one-to-many controllable VAW-GAN-based EVC framework as descript in Figure 1. </h6>
-                     <h6> <b>Note:</b> 
-                      <h6> (1) Angry is the unseen emotion for DeepEST, while all emotions are seen emotions for VAW-GAN-EVC.</h6>
-                      <h6> (2) DeepEST is an one-to-many conversion model for all three EVC tasks, while VAW-GAN-EVC is one-to-one model and trained three times for each task resepectively. </h6> 
-                      <tbody>
-                                
-                                
                                 <tr>
-                                    <th></th>
-                                    <th style="text-align:center;">   Source</th>
-                                    <th style="text-align:center;">   VAW-GAN-EVC</th>
-                                    <th style="text-align:center;">   DeepEST</th>
-                                    <th style="text-align:center;">   Target</th>
-                          
+                                    <th colspan=5>
+                                        <h4>Neutral-to-Amused</h4>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <h1 style="color:red"> EXPLAIN THE DIFFERENT MODELS</h1>
+                            <!-- <h6> <b>VAW-GAN-EVC [1]</b>: A state-of-the-art VAW-GAN-based EVC framework. The decoder is conditioned with F0 and one-hot emotion ID. </h6>
+                                    <h6><b>DeepEST (proposed) </b>: The proposed one-to-many controllable VAW-GAN-based EVC framework as descript in Figure 1. </h6>
+                                    <h6> <b>Note:</b>
+                                        <h6> (1) Angry is the unseen emotion for DeepEST, while all emotions are seen emotions for VAW-GAN-EVC.</h6>
+                                        <h6> (2) DeepEST is an one-to-many conversion model for all three EVC tasks, while VAW-GAN-EVC is one-to-one model and trained three times for each task resepectively. </h6> -->
+                            <tbody>
+
+
+                                <tr>
+                                    <th style="text-align:center;"> Source</th>
+                                    <th style="text-align:center;"> BaseLine</th>
+                                    <th style="text-align:center;"> StarGANv2-EVCUP</th>
+                                    <th style="text-align:center;"> w/o VDM</th>
+                                    <th style="text-align:center;"> w/o Sample Masking</th>
                                 </tr>
                                 <!-- single sentence -->
 
                                 <tr>
-                                  <th scope="row">    </th>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./source/0013_000006.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./baseline/Neutral-Happy-0013_000006.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./proposed/Neutral-Happy-0013_000006.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                   <td>
-                                    <audio controls>
-                                      <source src="./target/happy/0013_000706.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                                               <!-- single sentence -->
+                                    <td>
+                                        <audio controls>
+                                            <source src="./sources/p225_002.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
 
-                                <tr>
-                                  <th scope="row">    </th>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./source/0013_000010.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./baseline/Neutral-Happy-0013_000010.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./proposed/Neutral-Happy-0013_000010.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                   <td>
-                                    <audio controls>
-                                      <source src="./target/happy/0013_000710.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                                                                                 <!-- single sentence -->
-
-                                <tr>
-                                  <th scope="row">    </th>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./source/0013_000016.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./baseline/Neutral-Happy-0013_000016.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./proposed/Neutral-Happy-0013_000016.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                   <td>
-                                    <audio controls>
-                                      <source src="./target/happy/0013_000716.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                                                <!-- single sentence -->
-
-                                <tr>
-                                  <th scope="row">    </th>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./source/0019_000004.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./baseline/Neutral-Happy-0019_000004.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./proposed/Neutral-Happy-0019_000004.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                   <td>
-                                    <audio controls>
-                                      <source src="./target/happy/0019_000704.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>                                                                                                                                               <!-- single sentence -->
-
-                                <tr>
-                                  <th scope="row">    </th>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./source/0019_000007.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./baseline/Neutral-Happy-0019_000007.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./proposed/Neutral-Happy-0019_000007.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                   <td>
-                                    <audio controls>
-                                      <source src="./target/happy/0019_000707.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>                                                                                                                                                   <!-- single sentence -->
-
-                                <tr>
-                                  <th scope="row">    </th>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./source/0018_000007.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./baseline/Neutral-Happy-0018_000007.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./proposed/Neutral-Happy-0018_000007.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                   <td>
-                                    <audio controls>
-                                      <source src="./target/happy/0018_000707.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>                                                                                                  
-
-     
-
-
-
-                      </tbody>
-                        <tr>
-                             <th colspan=5><h4>Neutral-to-Sad</h4></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                                
-                                
-                                <tr>
-                                    <th></th>
-                                    <th style="text-align:center;">   Source</th>
-                                    <th style="text-align:center;">   VAW-GAN-EVC</th>
-                                    <th style="text-align:center;">   DeepEST</th>
-                                    <th style="text-align:center;">   Target</th>
-                          
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./baseline/conv_p225_002_p225_Amused.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./starganv2evcup/conv_p225_002_p225_Amused.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_vdm/conv_p225_002_p225_Amused.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_sample_masking/conv_p225_002_p225_Amused.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
                                 </tr>
+                                <tr>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./sources/p229_002.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./baseline/conv_p229_002_p229_Amused.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./starganv2evcup/conv_p229_002_p229_Amused.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_vdm/conv_p229_002_p229_Amused.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_sample_masking/conv_p229_002_p229_Amused.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
                                 </tr>
-<!-- single sentence -->
+                                <tr>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./sources/p230_002.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
 
-                                <tr>
-                                  <th scope="row">    </th>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./source/0013_000006.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./baseline/Neutral-Sad-0013_000006.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./proposed/Neutral-Sad-0013_000006.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                   <td>
-                                    <audio controls>
-                                      <source src="./target/sad/0013_001056.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>  
-                                  <!-- single sentence -->
-
-                                <tr>
-                                  <th scope="row">    </th>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./source/0013_000010.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./baseline/Neutral-Sad-0013_000010.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./proposed/Neutral-Sad-0013_000010.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                   <td>
-                                    <audio controls>
-                                      <source src="./target/sad/0013_001060.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>     
-                                                                 <!-- single sentence -->
-
-                                <tr>
-                                  <th scope="row">    </th>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./source/0013_000016.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./baseline/Neutral-Sad-0013_000016.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./proposed/Neutral-Sad-0013_000016.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                   <td>
-                                    <audio controls>
-                                      <source src="./target/sad/0013_001066.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td> 
-                                                                 <!-- single sentence -->
-
-                                <tr>
-                                  <th scope="row">    </th>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./source/0019_000004.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./baseline/Neutral-Sad-0019_000004.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./proposed/Neutral-Sad-0019_000004.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                   <td>
-                                    <audio controls>
-                                      <source src="./target/sad/0019_001054.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>     
-                                                                                               <!-- single sentence -->
-
-                                <tr>
-                                  <th scope="row">    </th>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./source/0019_000007.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./baseline/Neutral-Sad-0019_000007.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./proposed/Neutral-Sad-0019_000007.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                   <td>
-                                    <audio controls>
-                                      <source src="./target/sad/0019_001057.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>   
-                                             <!-- single sentence -->
-
-                                <tr>
-                                  <th scope="row">    </th>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./source/0018_000007.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./baseline/Neutral-Sad-0018_000007.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./proposed/Neutral-Sad-0018_000007.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                   <td>
-                                    <audio controls>
-                                      <source src="./target/sad/0018_001057.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>      
-                               
-                        <tr>
-                             <th colspan=5><h4>Neutral-to-Angry (Angry is an unseen emotion for DeepEST)</h4></th>
-                        </tr>
-                      </thead>
-                   
-                      <tbody>
-                                
-                                
-                                <tr>
-                                    <th></th>
-                                    <th style="text-align:center;">   Source</th>
-                                    <th style="text-align:center;">   VAW-GAN-EVC</th>
-                                    <th style="text-align:center;">   DeepEST</th>
-                                    <th style="text-align:center;">   Target</th>
-                          
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./baseline/conv_p230_002_p230_Amused.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./starganv2evcup/conv_p230_002_p230_Amused.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_vdm/conv_p230_002_p230_Amused.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_sample_masking/conv_p230_002_p230_Amused.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
                                 </tr>
-<!-- single sentence -->
+                            </tbody>
+                        </table>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan=5>
+                                        <h4>Neutral-to-Angry</h4>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th style="text-align:center;"> Source</th>
+                                    <th style="text-align:center;"> BaseLine</th>
+                                    <th style="text-align:center;"> StarGANv2-EVCUP</th>
+                                    <th style="text-align:center;"> w/o VDM</th>
+                                    <th style="text-align:center;"> w/o Sample Masking</th>
+                                </tr>
+                                <!-- single sentence -->
 
                                 <tr>
-                                  <th scope="row">    </th>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./source/0013_000006.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./baseline/Neutral-Angry-0013_000006.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./proposed/Neutral-Angry-0013_000006.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                   <td>
-                                    <audio controls>
-                                      <source src="./target/angry/0013_000356.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>  
-                                  <!-- single sentence -->
+                                    <td>
+                                        <audio controls>
+                                            <source src="./sources/p225_002.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./baseline/conv_p225_002_p225_Angry.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./starganv2evcup/conv_p225_002_p225_Angry.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_vdm/conv_p225_002_p225_Angry.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_sample_masking/conv_p225_002_p225_Angry.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./sources/p229_002.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./baseline/conv_p229_002_p229_Angry.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./starganv2evcup/conv_p229_002_p229_Angry.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_vdm/conv_p229_002_p229_Angry.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_sample_masking/conv_p229_002_p229_Angry.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./sources/p230_002.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./baseline/conv_p230_002_p230_Angry.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./starganv2evcup/conv_p230_002_p230_Angry.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_vdm/conv_p230_002_p230_Angry.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_sample_masking/conv_p230_002_p230_Angry.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan=5>
+                                        <h4>Neutral-to-Disgusted</h4>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th style="text-align:center;"> Source</th>
+                                    <th style="text-align:center;"> BaseLine</th>
+                                    <th style="text-align:center;"> StarGANv2-EVCUP</th>
+                                    <th style="text-align:center;"> w/o VDM</th>
+                                    <th style="text-align:center;"> w/o Sample Masking</th>
+                                </tr>
+                                <!-- single sentence -->
 
                                 <tr>
-                                  <th scope="row">    </th>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./source/0013_000010.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./baseline/Neutral-Angry-0013_000010.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./proposed/Neutral-Angry-0013_000010.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                   <td>
-                                    <audio controls>
-                                      <source src="./target/angry/0013_000360.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>  
-                                                                    <!-- single sentence -->
+                                    <td>
+                                        <audio controls>
+                                            <source src="./sources/p225_002.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./baseline/conv_p225_002_p225_Disgusted.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./starganv2evcup/conv_p225_002_p225_Disgusted.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_vdm/conv_p225_002_p225_Disgusted.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_sample_masking/conv_p225_002_p225_Disgusted.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./sources/p229_002.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./baseline/conv_p229_002_p229_Disgusted.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./starganv2evcup/conv_p229_002_p229_Disgusted.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_vdm/conv_p229_002_p229_Disgusted.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_sample_masking/conv_p229_002_p229_Disgusted.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./sources/p230_002.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./baseline/conv_p230_002_p230_Disgusted.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./starganv2evcup/conv_p230_002_p230_Disgusted.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_vdm/conv_p230_002_p230_Disgusted.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_sample_masking/conv_p230_002_p230_Disgusted.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan=5>
+                                        <h4>Neutral-to-Sleepy</h4>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th style="text-align:center;"> Source</th>
+                                    <th style="text-align:center;"> BaseLine</th>
+                                    <th style="text-align:center;"> StarGANv2-EVCUP</th>
+                                    <th style="text-align:center;"> w/o VDM</th>
+                                    <th style="text-align:center;"> w/o Sample Masking</th>
+                                </tr>
+                                <!-- single sentence -->
 
                                 <tr>
-                                  <th scope="row">    </th>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./source/0013_000016.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./baseline/Neutral-Angry-0013_000016.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./proposed/Neutral-Angry-0013_000016.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                   <td>
-                                    <audio controls>
-                                      <source src="./target/angry/0013_000366.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>  
-                                                                   <!-- single sentence -->
+                                    <td>
+                                        <audio controls>
+                                            <source src="./sources/p225_002.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
 
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./baseline/conv_p225_002_p225_Sleepy.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./starganv2evcup/conv_p225_002_p225_Sleepy.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_vdm/conv_p225_002_p225_Sleepy.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_sample_masking/conv_p225_002_p225_Sleepy.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                </tr>
                                 <tr>
-                                  <th scope="row">    </th>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./source/0019_000004.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./baseline/Neutral-Angry-0019_000004.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./proposed/Neutral-Angry-0019_000004.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                   <td>
-                                    <audio controls>
-                                      <source src="./target/angry/0019_000354.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>  
-                                                                                                     <!-- single sentence -->
+                                    <td>
+                                        <audio controls>
+                                            <source src="./sources/p229_002.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
 
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./baseline/conv_p229_002_p229_Sleepy.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./starganv2evcup/conv_p229_002_p229_Sleepy.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_vdm/conv_p229_002_p229_Sleepy.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_sample_masking/conv_p229_002_p229_Sleepy.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                </tr>
                                 <tr>
-                                  <th scope="row">    </th>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./source/0019_000007.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./baseline/Neutral-Angry-0019_000007.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./proposed/Neutral-Angry-0019_000007.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                   <td>
-                                    <audio controls>
-                                      <source src="./target/angry/0019_000357.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>  
-                                                                     <!-- single sentence -->
+                                    <td>
+                                        <audio controls>
+                                            <source src="./sources/p230_002.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
 
-                                <tr>
-                                  <th scope="row">    </th>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./source/0018_000007.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./baseline/Neutral-Angry-0018_000007.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                  <td>
-                                    <audio controls>
-                                      <source src="./proposed/Neutral-Angry-0018_000007.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>
-                                   <td>
-                                    <audio controls>
-                                      <source src="./target/angry/0018_000357.wav" type="audio/wav" />
-                                      Your browser does not support the audio element.
-                                    </audio>
-                                  </td>  
-                               
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./baseline/conv_p230_002_p230_Sleepy.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./starganv2evcup/conv_p230_002_p230_Sleepy.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_vdm/conv_p230_002_p230_Sleepy.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="./wo_sample_masking/conv_p230_002_p230_Sleepy.wav" type="audio/wav" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- [1] Kun Zhou, Berrak Sisman, Mingyang Zhang and Haizhou Li, "Converting Anyone's Emotion: Towards Speaker-Independent Emotional Voice Conversion", in Proc. INTERSPEECH, Shanghai, China, October 2020. -->
+                    </div>
 
-
-
-                      </tbody>
-
-                      </tbody>
-
-
-
-
-                    </table>
-
-[1] Kun Zhou, Berrak Sisman, Mingyang Zhang and Haizhou Li, "Converting Anyone's Emotion: Towards Speaker-Independent Emotional Voice Conversion", in Proc. INTERSPEECH, Shanghai, China, October 2020.
-
-
-
-
-
-                  </div>
-                 
-        </div>
-      </div>
-      <hr>
-      <div class="row" id="ref">
-        <div class="col">
-          <!--<h2>References</h2>
+                </div>
+            </div>
+            <hr>
+            <div class="row" id="ref">
+                <div class="col">
+                    <!--<h2>References</h2>
           
          -->
-        </div>
-      </div>
-      <hr>
-      <!-- <div class="row" id="contact">
+                </div>
+            </div>
+            <hr>
+            <!-- <div class="row" id="contact">
           <div class="col">
             <h2>Contact</h2>
             <div></div>
           </div>
         </div> -->
-    </div>
-  </main>
-  <footer class="bg-secondary text-light mt-4 pt-3 pb-2 ">
-    <div class="container">
-      <p class="text-center">
-        
-      </p>
-    </div>
-  </footer>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
+        </div>
+    </main>
+    <footer class="bg-secondary text-light
+                                          mt-4 pt-3 pb-2">
+        <div class="container">
+            <p class="text-center">
+
+            </p>
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
